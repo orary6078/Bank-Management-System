@@ -5,6 +5,9 @@
 package GUIPackage;
 
 //import UserVerifier.*;
+
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author anmol
@@ -48,13 +51,11 @@ public class MainGUI extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\anmol\\OneDrive\\Documents\\NetBeansProjects\\BankManagementSystem\\src\\BGImg.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\anmol\\OneDrive\\Documents\\NetBeansProjects\\BankManagementSystem\\src\\Img\\BGImg.jpg")); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 439));
 
         jPanel3.setBackground(new java.awt.Color(227, 242, 242));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\anmol\\OneDrive\\Documents\\NetBeansProjects\\BankManagementSystem\\src\\logo.png")); // NOI18N
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 100, 73));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
@@ -123,9 +124,13 @@ public class MainGUI extends javax.swing.JFrame {
         UserVerifier verifier = new UserVerifier("C:\\Users\\anmol\\OneDrive\\Documents\\NetBeansProjects\\BankManagementSystem\\src\\GUIPackage\\users.txt");
         if(verifier.verifyUser(userID,userPass)){
             System.out.println("Logged IN");
+            DashboardGUI dashboard = new DashboardGUI();
+            dashboard.setVisible(true);
+            this.setVisible(false);
         }
         else{
             System.out.println("Login Failed");
+            JOptionPane.showMessageDialog(this, "Invalid username or password");
         }
 //        System.out.println(userID+userPass);
     }//GEN-LAST:event_jButton1ActionPerformed
